@@ -1,0 +1,31 @@
+Algorithm Quick_Sort(arr[], lo, hi)
+{
+    if lo := hi then return;
+    
+    pi := partition(arr, lo, hi);
+
+    Quick_Sort(arr, lo, pi - 1);
+    Quick_Sort(arr, pi + 1, hi);
+}
+
+Algorithm Partition(arr[], lo, hi)
+{
+    pivot := arr[hi];  
+ 
+    i := lo - 1;
+    j := lo;
+    
+    while j <= hi - 1 do
+    {
+        if (arr[j] < pivot) then
+        {
+            i++;
+            swap arr[i] and arr[j];
+        }
+        
+        j++;
+    }
+    
+    swap arr[i + 1] and arr[hi];
+    return (i + 1);
+}
